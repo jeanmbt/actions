@@ -1,0 +1,71 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Open-Meteo API",
+    "description": "Retrieves weather forecast data.",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.open-meteo.com"
+    }
+  ],
+  "paths": {
+    "/v1/forecast": {
+      "get": {
+        "description": "Retrieves weather forecast data for given coordinates and parameters",
+        "operationId": "getWeatherForecast",
+        "parameters": [
+          {
+            "name": "latitude",
+            "in": "query",
+            "description": "Latitude for the weather data",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "longitude",
+            "in": "query",
+            "description": "Longitude for the weather data",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "current",
+            "in": "query",
+            "description": "Current weather data parameters",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "hourly",
+            "in": "query",
+            "description": "Hourly weather data parameters",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with forecast data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "// Define the schema for weather forecast response": null
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
